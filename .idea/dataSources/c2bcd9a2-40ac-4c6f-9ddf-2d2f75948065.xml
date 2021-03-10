@@ -1361,103 +1361,121 @@
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="499" parent="170" name="entrant_pk">
+    <column id="499" parent="170" name="isActive">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <key id="500" parent="170" name="entrant_pk">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="500" parent="171" name="type">
+    <column id="501" parent="171" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="501" parent="171" name="name">
+    <column id="502" parent="171" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="502" parent="171" name="tbl_name">
+    <column id="503" parent="171" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="503" parent="171" name="rootpage">
+    <column id="504" parent="171" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="504" parent="171" name="sql">
+    <column id="505" parent="171" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="505" parent="172" name="name">
+    <column id="506" parent="172" name="name">
       <Position>1</Position>
     </column>
-    <column id="506" parent="172" name="seq">
+    <column id="507" parent="172" name="seq">
       <Position>2</Position>
     </column>
-    <column id="507" parent="173" name="id">
+    <column id="508" parent="173" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="508" parent="173" name="lastName">
+    <column id="509" parent="173" name="lastName">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="509" parent="173" name="name">
+    <column id="510" parent="173" name="name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="510" parent="173" name="patronymic">
+    <column id="511" parent="173" name="patronymic">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="511" parent="173" name="dateOfBirth">
+    <column id="512" parent="173" name="dateOfBirth">
       <Position>5</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="512" parent="173" name="post">
+    <column id="513" parent="173" name="post">
       <Position>6</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="513" parent="173" name="staff_pk">
+    <column id="514" parent="173" name="isActive">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <key id="515" parent="173" name="staff_pk">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="514" parent="174" name="id">
+    <column id="516" parent="174" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="515" parent="174" name="lastName">
+    <column id="517" parent="174" name="lastName">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="516" parent="174" name="name">
+    <column id="518" parent="174" name="name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="517" parent="174" name="patronymic">
+    <column id="519" parent="174" name="patronymic">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="518" parent="174" name="dateOfBirth">
+    <column id="520" parent="174" name="dateOfBirth">
       <Position>5</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="519" parent="174" name="faculty">
+    <column id="521" parent="174" name="faculty">
       <Position>6</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="520" parent="174" name="students_pk">
+    <column id="522" parent="174" name="isActive">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <key id="523" parent="174" name="students_pk">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
