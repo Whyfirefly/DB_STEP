@@ -3,7 +3,7 @@
 DataBase::DataBase()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("users.db");
+    db.setDatabaseName("C:\\Why\\DB_STEP.sqlite");
 }
 
 DataBase::DataBase(QString path)
@@ -24,8 +24,8 @@ void DataBase::Close(){
 void DataBase::Insert(QString tableName, QString firstname, QString lastname, QString patronym, QString dateOfBirth){
     QString sql;
 
-        sql = "INSERT INTO " + tableName + "(name, lastname, patronym, dateOfBirth) ";
-        sql += "VALUES (" + firstname + ", " + lastname + ", " + patronym + ", " + dateOfBirth + ");";
+        sql = "INSERT INTO " + tableName + "(name, lastName, patronymic, dateOfBirth, faculty, isActive) ";
+        sql += "VALUES (" + firstname + ", " + lastname + ", " + patronym + ", " + dateOfBirth + ", asd, 1);";
 
 
     QSqlQuery query;

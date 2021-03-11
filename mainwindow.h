@@ -20,6 +20,8 @@ private slots:
 
     void on_Button_Edit_Student_clicked();
 
+    void on_Button_Clear_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

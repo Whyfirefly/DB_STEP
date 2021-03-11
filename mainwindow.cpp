@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 
-DataBase db("C:\\KretininProjects\\BDFILES\\users.sqlite");
+DataBase db("C:\\Why\\DB_STEP.sqlite");
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     // Автозагрузка
     db.Open();
-}
+    }
 
 MainWindow::~MainWindow()
 {
@@ -21,8 +21,8 @@ MainWindow::~MainWindow()
 
  void MainWindow::on_Button_Insert_Student_clicked()
 {
-  QString tableName = "table_students";
-  QString valueName = "Faculty";
+  QString tableName = "students";
+  QString valueName = "vaculty";
   QString firstname = ui->Input_Name->text();
   QString lastname = ui->Input_LastName->text();
   QString patronym = ui->Input_Patronym->text();
@@ -46,6 +46,12 @@ MainWindow::~MainWindow()
   db.Edit(tableName, id,  firstname, lastname, patronym, birthday, faculty, valueName);
 }
 
+//очищение данных на экране
+void MainWindow::on_Button_Clear_clicked()
+ {
+     ui->Input_Search->clear();
+
+ }
 
 //Button_Find_onclick
 // void MainWindow::on_button_find_clicked()
