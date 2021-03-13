@@ -37,7 +37,7 @@ MainWindow::~MainWindow()
 {
   QString tableName = "table_students";
   QString valueName = "Faculty";
-  QString id = "4";
+  int id = id;
   QString firstname = ui->Input_Search_Name->text();
   QString lastname = ui->Input_Search_LastName->text();
   QString patronym = ui->Input_Search_Patronym->text();

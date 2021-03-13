@@ -21,6 +21,8 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    DataBaseQuery.h \
+    PersonTemplate.h \
     database.h \
     mainwindow.h
 
