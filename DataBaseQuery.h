@@ -1,52 +1,14 @@
 #pragma once
-#include <QString>
+//#include <QString>
+#include "PersonTemplate.h"
 
-QString GiveMeInsertString(QString valueName){
-  QString sql = "INSERT INTO :tableName (name, lastname, patronymic, dateOfBirth";
-  if(valueName != "0"){
-    sql += ", " + valueName;
-  }
-  sql += ", isActive) ";
-  sql += "VALUES (:lastName, :name, :patronymic, :dateOfBirth";
-  if(valueName != "0"){
-    sql += ", :" + valueName;
-  }
-  sql += ", :isActive);";
+QString GiveMeInsertString(QString tableName, QString valueName);
 
-  return sql;
-}
+QString GiveMeUpdateString(QString valueName);
 
-QString GiveMeUpdateString(QString valueName){
+QString GiveMeDeleteString();
 
-  QString sql = "UPDATE :tableName SET lastName = :lastName, name = :name, patronymic = :patronym, dateOfBirth = :dateOfBirth";
-  if(valueName != "0"){
-      sql += ", " + valueName + " = :" + valueName;
-  }
-  sql += ", isActive = 1 WHERE id = :id;";
+QString GiveMeIdString(QString name);
 
-  return sql;
-}
+QString GiveMeSearchString();
 
-QString GiveMeDeleteString(){
-  QString sql = "UPDATE :tableName SET isActive = 0 ";
-  sql += " WHERE id = :id;";
-  return sql;
-}
-
-QString GiveMeIdString(QString name){
-  QString sql = "SELECT id FROM tableName WHERE lastName = :lastName";
-  if(name != "0") {
-    sql += "AND name = :name";
-  }
-  sql += ";";
-
-  return sql;
-}
-
-QString GiveMeSearchString(){
-  QString sql = "SELECT * FROM :tableName WHERE id = :id;";
-  return sql;
-}
-
-
-#endif // DATABASEQUERY_H
