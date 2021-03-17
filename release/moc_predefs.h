@@ -158,6 +158,7 @@
 #define __cpp_initializer_lists 200806
 #define __FLT32_MAX_EXP__ 128
 #define __cpp_hex_float 201603
+#define __GCC_HAVE_DWARF2_CFI_ASM 1
 #define __GXX_ABI_VERSION 1011
 #define __FLT128_HAS_INFINITY__ 1
 #define __FLT_MIN_EXP__ (-125)
