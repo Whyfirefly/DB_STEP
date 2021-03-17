@@ -43,6 +43,9 @@ public:
     QLabel *label_name_6;
     QLineEdit *Input_Faculty;
     QPushButton *Button_Insert_Student;
+    QPushButton *Button_Export_S;
+    QLineEdit *Input_Address_S;
+    QLabel *label;
     QWidget *tab_Employee;
     QFormLayout *formLayout_3;
     QLabel *label_name_8;
@@ -56,6 +59,9 @@ public:
     QLabel *label_post;
     QLineEdit *Input_Post;
     QPushButton *Button_Insert_Employee;
+    QPushButton *Button_Export_E;
+    QLabel *label_2;
+    QLineEdit *Input_Address_E;
     QWidget *tab_Applicants;
     QFormLayout *formLayout_6;
     QLabel *label_name_25;
@@ -67,6 +73,9 @@ public:
     QLabel *label_birth;
     QLineEdit *Input_Birthday_3;
     QPushButton *Button_Insert_Applicants;
+    QPushButton *Button_Export_A;
+    QLabel *label_3;
+    QLineEdit *Input_Address_A;
     QWidget *Find;
     QPushButton *Button_Search;
     QLineEdit *Input_Search;
@@ -195,7 +204,23 @@ public:
         Button_Insert_Student->setMaximumSize(QSize(16777215, 21));
         Button_Insert_Student->setFont(font);
 
-        formLayout_2->setWidget(5, QFormLayout::SpanningRole, Button_Insert_Student);
+        formLayout_2->setWidget(6, QFormLayout::SpanningRole, Button_Insert_Student);
+
+        Button_Export_S = new QPushButton(tab_Student);
+        Button_Export_S->setObjectName(QString::fromUtf8("Button_Export_S"));
+        Button_Export_S->setFont(font);
+
+        formLayout_2->setWidget(7, QFormLayout::SpanningRole, Button_Export_S);
+
+        Input_Address_S = new QLineEdit(tab_Student);
+        Input_Address_S->setObjectName(QString::fromUtf8("Input_Address_S"));
+
+        formLayout_2->setWidget(8, QFormLayout::FieldRole, Input_Address_S);
+
+        label = new QLabel(tab_Student);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        formLayout_2->setWidget(8, QFormLayout::LabelRole, label);
 
         tabWidget->addTab(tab_Student, QString());
         tab_Employee = new QWidget();
@@ -259,6 +284,22 @@ public:
 
         formLayout_3->setWidget(5, QFormLayout::SpanningRole, Button_Insert_Employee);
 
+        Button_Export_E = new QPushButton(tab_Employee);
+        Button_Export_E->setObjectName(QString::fromUtf8("Button_Export_E"));
+        Button_Export_E->setFont(font);
+
+        formLayout_3->setWidget(6, QFormLayout::SpanningRole, Button_Export_E);
+
+        label_2 = new QLabel(tab_Employee);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        formLayout_3->setWidget(7, QFormLayout::LabelRole, label_2);
+
+        Input_Address_E = new QLineEdit(tab_Employee);
+        Input_Address_E->setObjectName(QString::fromUtf8("Input_Address_E"));
+
+        formLayout_3->setWidget(7, QFormLayout::FieldRole, Input_Address_E);
+
         tabWidget->addTab(tab_Employee, QString());
         tab_Applicants = new QWidget();
         tab_Applicants->setObjectName(QString::fromUtf8("tab_Applicants"));
@@ -309,7 +350,23 @@ public:
         Button_Insert_Applicants->setMaximumSize(QSize(16777215, 21));
         Button_Insert_Applicants->setFont(font);
 
-        formLayout_6->setWidget(4, QFormLayout::SpanningRole, Button_Insert_Applicants);
+        formLayout_6->setWidget(5, QFormLayout::SpanningRole, Button_Insert_Applicants);
+
+        Button_Export_A = new QPushButton(tab_Applicants);
+        Button_Export_A->setObjectName(QString::fromUtf8("Button_Export_A"));
+        Button_Export_A->setFont(font);
+
+        formLayout_6->setWidget(6, QFormLayout::SpanningRole, Button_Export_A);
+
+        label_3 = new QLabel(tab_Applicants);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        formLayout_6->setWidget(7, QFormLayout::LabelRole, label_3);
+
+        Input_Address_A = new QLineEdit(tab_Applicants);
+        Input_Address_A->setObjectName(QString::fromUtf8("Input_Address_A"));
+
+        formLayout_6->setWidget(7, QFormLayout::FieldRole, Input_Address_A);
 
         tabWidget->addTab(tab_Applicants, QString());
         tabWidget_2->addTab(Add, QString());
@@ -530,7 +587,7 @@ public:
         retranslateUi(MainWindow);
 
         tabWidget_2->setCurrentIndex(0);
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
         tabWidget_3->setCurrentIndex(0);
 
 
@@ -546,6 +603,8 @@ public:
         label_name_5->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Birthday :</span></p></body></html>", nullptr));
         label_name_6->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Faculty :</span></p></body></html>", nullptr));
         Button_Insert_Student->setText(QApplication::translate("MainWindow", "Save", nullptr));
+        Button_Export_S->setText(QApplication::translate("MainWindow", "Export", nullptr));
+        label->setText(QApplication::translate("MainWindow", "Address_Exp:", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_Student), QApplication::translate("MainWindow", "Student", nullptr));
         label_name_8->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Name :</span></p></body></html>", nullptr));
         label_name_9->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">LastName :</span></p></body></html>", nullptr));
@@ -553,12 +612,16 @@ public:
         label_birth_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Birthday :</span></p></body></html>", nullptr));
         label_post->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Post :</span></p></body></html>", nullptr));
         Button_Insert_Employee->setText(QApplication::translate("MainWindow", "Save", nullptr));
+        Button_Export_E->setText(QApplication::translate("MainWindow", "Export", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "Address_Exp:", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_Employee), QApplication::translate("MainWindow", "Employee", nullptr));
         label_name_25->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Name :</span></p></body></html>", nullptr));
         label_lastname->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">LastName :</span></p></body></html>", nullptr));
         label_patron->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Patronym :</span></p></body></html>", nullptr));
         label_birth->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Birthday :</span></p></body></html>", nullptr));
         Button_Insert_Applicants->setText(QApplication::translate("MainWindow", "Save", nullptr));
+        Button_Export_A->setText(QApplication::translate("MainWindow", "Export", nullptr));
+        label_3->setText(QApplication::translate("MainWindow", "Address_Exp:", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_Applicants), QApplication::translate("MainWindow", "Applicants", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(Add), QApplication::translate("MainWindow", "Add", nullptr));
         Button_Search->setText(QApplication::translate("MainWindow", "Find", nullptr));
