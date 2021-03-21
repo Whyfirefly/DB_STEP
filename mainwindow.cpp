@@ -33,12 +33,6 @@ MainWindow::~MainWindow()
   ui->statusbar->showMessage("Insert");
   //db.Insert_2(ui, tableName, firstname, lastname, patronym, birthday, faculty, valueName);
     db.Insert(tableName, firstname, lastname, patronym, birthday, faculty, valueName);
-  /*if(flag){
-      ui->statusbar->showMessage("Done True");
-  } else {
-       ui->statusbar->showMessage(" " + flag);
-  }*/
-
   // показать сообщение
 }
 /*
@@ -46,14 +40,34 @@ MainWindow::~MainWindow()
 {
   QString tableName = "table_students";
   QString valueName = "Faculty";
-  int id = id;
-  QString firstname = ui->Input_Search_Name->text();
-  QString lastname = ui->Input_Search_LastName->text();
-  QString patronym = ui->Input_Search_Patronym->text();
-  QString birthday = ui->Input_Search_Birthday->text();
-  QString faculty = ui->Input_Search_Faculty->text();
-  db.Edit(tableName, id,  firstname, lastname, patronym, birthday, faculty, valueName);
+  int id = 1;
+  QString firstname = ui->Input_Edit_Name->text();
+  QString lastname = ui->Input_Edit_LastName->text();
+  QString patronym = ui->Input_Edit_Patronym->text();
+  QString birthday = ui->Input_Edit_Birthday->text();
+  QString faculty = ui->Input_Edit_Faculty->text();
+  //db.Edit(tableName, id,  firstname, lastname, patronym, birthday, faculty, valueName);
+  db.Edit_2(ui, tableName, id, firstname, lastname, patronym, birthday, faculty, valueName)
 }
+*/
+
+/*
+  void MainWindow::on_Button_Delete_clicked(){
+      int id = ui->Input_Search_Id->text();
+      QString tableName = "table_students";
+// дописать функцию giveMeProperTableName
+      db.Delete_2(ui, tableName, id);
+  }
+*/
+/*
+  void MainWindow::on_Button_Find_clicked(){
+      QString tableName = "table_students";
+      Qstring lastName =   QString lastname = ui->Input_Find_LastName->text();
+      Qstring lastName =   QString lastname = ui->Input_Find_Name->text();
+      int id = db.GiveMeId(tableName, lastName, name);
+      PersonTemplate person = db.Search(tableName, id);
+      //ui->Input_Edit_Name->set;
+  }
 */
 //очищение данных на экране
  /*
@@ -81,26 +95,6 @@ void MainWindow::on_Button_Clear_clicked()
 //
 //
 //}
-
-//Button_Edit_Onclick
-// Input_Name
-//Button_Delete_Onclick
-// void MainWindow::on_Button_Delete_clicked()
-//{
-//  QString fistname, lastname, patronym, dateOfBirth, otherdata
-//    auto key = ui->input_Key->text();
-//    auto person = db.QueryPerson(key);
-//    person
-//}
-
-//Button_ClearFind_Onlick
-
-//Button_ClearAdd_Onlick
-
-//Button_Import_onclick
-
-//Button_export_onclick
-
 
 
 
@@ -183,10 +177,3 @@ void MainWindow::on_Button_Import_clicked()
 
     ui->statusbar->showMessage(firstList[0]);
 }
-
-
-
-
-
-
-
