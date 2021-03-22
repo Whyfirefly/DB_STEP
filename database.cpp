@@ -55,21 +55,11 @@ int DataBase::Execute(QString tableName, PersonTemplate person, QString sql, QSt
     }
 }
 
-void DataBase::Insert(QString tableName, QString name, QString lastName, QString patronym, QString dateOfBirth, QString otherData = "0", QString valueName = "0"){
-    PersonTemplate person(lastName, name, patronym, dateOfBirth, 1, otherData);
-    QString sql = GiveMeInsertString(tableName, valueName);
-    Execute(tableName, person, sql, valueName);
-}
-
-int DataBase::Insert_2(Ui_MainWindow *ui, QString tableName, QString name, QString lastName, QString patronym, QString dateOfBirth, QString otherData = "0", QString valueName = "0"){
-    PersonTemplate person(lastName, name, patronym, dateOfBirth, 1, otherData);
-    QString sql = GiveMeInsertString(tableName, valueName);
+int DataBase::Execute_2(Ui_MainWindow *ui, QString tableName, PersonTemplate person, QString sql, QString valueName = "0"){
     valueName = ":" + valueName;
-    //int flag = Execute(tableName, person, sql, valueName);
-    //sql = "INSERT INTO table_name (lastName, name, patronymic, dateOfBirth, faculty, isActive)";
-   // sql = sql + " VALUES (:lastName, 'name', 'patronymic', 'dateOfBirth', 'faculty', 1);";
     QSqlQuery query;
     query.prepare(sql);
+    query.bindValue(":tableName", tableName);
     query.bindValue(":id", person.id);
     query.bindValue(":lastName", person.lastName);
     query.bindValue(":name", person.name);
@@ -78,15 +68,27 @@ int DataBase::Insert_2(Ui_MainWindow *ui, QString tableName, QString name, QStri
     if(person.otherData != "0") {
         query.bindValue(valueName, person.otherData);
     }
-    query.bindValue(":isActive", 1);
+    query.bindValue(":isActive", person.isActive);
 
     if(query.exec()){
         ui->statusbar->showMessage("Cool Exec");
     } else {
-
         ui->statusbar->showMessage( " Didn't work - " + sql);
     }
+}
 
+void DataBase::Insert(QString tableName, QString name, QString lastName, QString patronym, QString dateOfBirth, QString otherData = "0", QString valueName = "0"){
+    PersonTemplate person(lastName, name, patronym, dateOfBirth, 1, otherData);
+    QString sql = GiveMeInsertString(tableName, valueName);
+    Execute(tableName, person, sql, valueName);
+}
+
+
+// Done
+int DataBase::Insert_2(Ui_MainWindow *ui, QString tableName, QString name, QString lastName, QString patronym, QString dateOfBirth, QString otherData = "0", QString valueName = "0"){
+    PersonTemplate person(lastName, name, patronym, dateOfBirth, 1, otherData);
+    QString sql = GiveMeInsertString(tableName, valueName);
+    Execute_2(ui,tableName, person, sql, valueName);
 }
 
 
@@ -133,7 +135,7 @@ void DataBase::Delete_2(Ui_MainWindow *ui, QString tableName, int id){
 
     PersonTemplate person("Какое-то", "Дерьмо", "Чтобы", "Занять", 0, "Место", id);
     QString sql = GiveMeDeleteString(tableName);
-
+    QSqlQuery query;
     query.prepare(sql);
     query.bindValue(":id", id);
 
@@ -156,7 +158,7 @@ int DataBase::GiveMeId(QString tableName, QString lastName, QString name = "0"){
 int DataBase::GiveMeId_2(QString tableName, QString lastName, QString name = "0"){
   PersonTemplate person(lastName, name, "Чтобы", "Занять", 0, "Место");
   auto sql = GiveMeIdString(tableName, name);
-
+  QSqlQuery query;
   query.prepare(sql);
   query.bindValue(":lastName", lastName);
   query.bindValue(":name", name);

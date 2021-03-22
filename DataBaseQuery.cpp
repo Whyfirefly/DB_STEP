@@ -29,7 +29,7 @@ QString GiveMeUpdateString(QString tableName, QString valueName){
   return sql;
 }
 
-QString GiveMeDeleteString(Qstring tableName){
+QString GiveMeDeleteString(QString tableName){
   QString sql = "UPDATE" + tableName;
   sql += " SET isActive = 0";
   sql += " WHERE id = :id;";
@@ -46,7 +46,7 @@ QString GiveMeIdString(QString tableName, QString name){
   return sql;
 }
 
-QString GiveMeSearchString(Qstring tableName){
+QString GiveMeSearchString(QString tableName){
   QString sql = "SELECT * FROM " + tableName + " WHERE id = :id;";
   return sql;
 }
