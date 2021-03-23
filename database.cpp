@@ -166,16 +166,16 @@ int DataBase::GiveMeId_2(QString tableName, QString lastName, QString name = "0"
   person.id = query.exec();
   return person.id;
 }
-/*
+
+
 PersonTemplate DataBase::Search(QString tableName, int id){
     PersonTemplate person;
-    auto sql = GiveMeSearchString();
-
+    auto sql = GiveMeSearchString(tableName);
     QSqlQuery query;
     query.prepare(sql);
-    query.bindValue(":tableName", tableName);
     query.bindValue(":id", id);
     query.exec();
+
     int size = query.record().count();
     person.id = query.value(0).ToInt();
     person.lastName = query.value(1).toString();
@@ -187,7 +187,7 @@ PersonTemplate DataBase::Search(QString tableName, int id){
     person.isActive = query.value(size - 1).toInt();
     return person;
 }
-*/
+
 
 /*
 vector<PersonTemplate> GiveMeDB(){
