@@ -1,5 +1,5 @@
 #pragma once
-//#include <QString>
+#include <QString>
 #include "PersonTemplate.h"
 
 QString GiveMeInsertString(QString tableName, QString valueName){
@@ -20,7 +20,7 @@ QString GiveMeInsertString(QString tableName, QString valueName){
 
 QString GiveMeUpdateString(QString tableName, QString valueName){
   QString sql = "UPDATE " + tableName;
-  sql += "SET lastName = :lastName, name = :name, patronymic = :patronym, dateOfBirth = :dateOfBirth";
+  sql += " SET lastName = :lastName, name = :name, patronymic = :patronym, dateOfBirth = :dateOfBirth";
   if(valueName != "0"){
       sql += ", " + valueName + " = :" + valueName;
   }
@@ -37,10 +37,10 @@ QString GiveMeDeleteString(QString tableName){
 }
 
 QString GiveMeIdString(QString tableName, QString name){
-  QString sql = "SELECT id FROM" + tableName + "WHERE lastName = :lastName";
-  if(name != "0") {
+  QString sql = "SELECT id FROM " + tableName + " WHERE lastName = :lastName";
+ /* if(name != "0") {
     sql += "AND name = :name";
-  }
+  }*/
   sql += ";";
 
   return sql;

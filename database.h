@@ -30,7 +30,8 @@ public:
     int Insert_2(Ui_MainWindow *ui, QString tableName, QString name, QString lastName, QString patronym, QString dateOfBirth, QString otherData, QString valueName);
     void Edit_2(Ui_MainWindow *ui, QString tableName, int id, QString name, QString lastName, QString patronym, QString dateOfBirth, QString otherData, QString valueName);
     void Delete_2(Ui_MainWindow *ui, QString tableName, int id);
-    int GiveMeId_2(QString tableName, QString lastName, QString name);
+    int GiveMeId_2(Ui_MainWindow *ui, QString tableName, QString lastName, QString name);
+    PersonTemplate Search_2(Ui_MainWindow *ui, QString tableName, int id);
     PersonTemplate Search(QString tableName, int id);
 
 };

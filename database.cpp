@@ -155,16 +155,23 @@ int DataBase::GiveMeId(QString tableName, QString lastName, QString name = "0"){
   return person.id;
 }
 
-int DataBase::GiveMeId_2(QString tableName, QString lastName, QString name = "0"){
+
+//Done, redo name value
+int DataBase::GiveMeId_2(Ui_MainWindow *ui, QString tableName, QString lastName, QString name = "0"){
   PersonTemplate person(lastName, name, "Чтобы", "Занять", 0, "Место");
   auto sql = GiveMeIdString(tableName, name);
   QSqlQuery query;
   query.prepare(sql);
   query.bindValue(":lastName", lastName);
   query.bindValue(":name", name);
+  query.exec();
+  if(query.next()){
+      person.id = query.value(0).toInt();
+        return person.id;
+  } else {
+      return -1;
+  }
 
-  person.id = query.exec();
-  return person.id;
 }
 
 
@@ -176,8 +183,9 @@ PersonTemplate DataBase::Search(QString tableName, int id){
     query.bindValue(":id", id);
     query.exec();
 
-    int size = query.record().count();
-    person.id = query.value(0).ToInt();
+    //int size = query.record().count();
+    int size = 7;
+    person.id = query.value(0).toInt();
     person.lastName = query.value(1).toString();
     person.name = query.value(2).toString();
     person.patronym = query.value(3).toString();
@@ -186,6 +194,35 @@ PersonTemplate DataBase::Search(QString tableName, int id){
     }
     person.isActive = query.value(size - 1).toInt();
     return person;
+}
+
+
+PersonTemplate DataBase::Search_2(Ui_MainWindow *ui, QString tableName, int id){
+    PersonTemplate person;
+    auto sql = GiveMeSearchString(tableName);
+    QSqlQuery query;
+    query.prepare(sql);
+    query.bindValue(":id", id);
+    query.exec();
+
+    //int size = query.record().count();
+    int size = 7;
+
+    if(query.next()){
+        person.id = query.value(0).toInt();
+        person.lastName = query.value(1).toString();
+        person.name = query.value(2).toString();
+        person.patronym = query.value(3).toString();
+        if(size > 6){
+            person.otherData = query.value(4).toString();
+        }
+        person.isActive = query.value(size - 1).toInt();
+        ui->statusbar->showMessage(person.lastName);
+        return person;
+
+    } else {
+        ui->statusbar->showMessage("None");
+    }
 }
 
 
