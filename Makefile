@@ -210,7 +210,6 @@ Makefile: Step_QT.pro ../../../../Qt/5.12.5/mingw73_64/mkspecs/win32-g++/qmake.c
 		../../../../Qt/5.12.5/mingw73_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.12.5/mingw73_64/mkspecs/win32-g++/qmake.conf \
 		../../../../Qt/5.12.5/mingw73_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		../../../../Qt/5.12.5/mingw73_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.12.5/mingw73_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.12.5/mingw73_64/mkspecs/features/default_pre.prf \
@@ -390,7 +389,6 @@ Makefile: Step_QT.pro ../../../../Qt/5.12.5/mingw73_64/mkspecs/win32-g++/qmake.c
 ../../../../Qt/5.12.5/mingw73_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/5.12.5/mingw73_64/mkspecs/win32-g++/qmake.conf:
 ../../../../Qt/5.12.5/mingw73_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 ../../../../Qt/5.12.5/mingw73_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.12.5/mingw73_64/mkspecs/features/toolchain.prf:
 ../../../../Qt/5.12.5/mingw73_64/mkspecs/features/default_pre.prf:

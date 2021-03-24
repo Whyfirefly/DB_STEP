@@ -34,7 +34,7 @@ private slots:
 
     // void on_Button_Delete_clicked();
 
-    // void on_Button_Find_clicked();
+     void on_Button_Search_clicked();
 
     void on_Button_Export_E_clicked();
 

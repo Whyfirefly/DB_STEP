@@ -59,16 +59,19 @@ MainWindow::~MainWindow()
       db.Delete_2(ui, tableName, id);
   }
 */
-/*
-  void MainWindow::on_Button_Find_clicked(){
-      QString tableName = "table_students";
-      Qstring lastName =   QString lastname = ui->Input_Find_LastName->text();
-      Qstring lastName =   QString lastname = ui->Input_Find_Name->text();
-      int id = db.GiveMeId(tableName, lastName, name);
-      PersonTemplate person = db.Search(tableName, id);
-      //ui->Input_Edit_Name->set;
+
+  void MainWindow::on_Button_Search_clicked(){
+      QString tableName = "students";
+      QString lastName = ui->Input_Search->text();
+
+      int id = db.GiveMeId_2(ui, tableName, lastName, "0");
+      ui->statusbar->showMessage("123 " + QString::number(id));
+      PersonTemplate person = db.Search_2(ui, tableName, id);
+      ui->Input_Search_Name->setText(person.name);
+      ui->Input_Search_LastName->setText(person.lastName);
+      ui->Input_Search_Patronym->setText(person.patronym);
   }
-*/
+
 //очищение данных на экране
  /*
 void MainWindow::on_Button_Clear_clicked()
