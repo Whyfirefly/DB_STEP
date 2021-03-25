@@ -92,7 +92,7 @@ int DataBase::Insert_2(Ui_MainWindow *ui, QString tableName, QString name, QStri
 }
 
 
-
+//Done
 void DataBase::Edit(QString tableName, int id, QString name, QString lastName, QString patronym, QString dateOfBirth, QString otherData = "0", QString valueName = "0"){
     PersonTemplate person(lastName, name, patronym, dateOfBirth, 1, otherData, id);
     QString sql = GiveMeUpdateString(tableName, valueName);
@@ -108,7 +108,7 @@ void DataBase::Edit_2(Ui_MainWindow *ui, QString tableName, int id, QString name
     query.bindValue(":id", person.id);
     query.bindValue(":lastName", person.lastName);
     query.bindValue(":name", person.name);
-    query.bindValue(":patronymic", person.patronym);
+    query.bindValue(":patronym", person.patronym);
     query.bindValue(":dateOfBirth", person.dateOfBirth);
     if(person.otherData != "0") {
         query.bindValue(valueName, person.otherData);
@@ -174,7 +174,7 @@ int DataBase::GiveMeId_2(Ui_MainWindow *ui, QString tableName, QString lastName,
 
 }
 
-
+//  количество строк
 PersonTemplate DataBase::Search(QString tableName, int id){
     PersonTemplate person;
     auto sql = GiveMeSearchString(tableName);
@@ -225,15 +225,3 @@ PersonTemplate DataBase::Search_2(Ui_MainWindow *ui, QString tableName, int id){
     }
 }
 
-
-/*
-vector<PersonTemplate> GiveMeDB(){
-  vector<PersonTemplate> vectorDB;
-
-  PersonTemplate person;
-    for(int i=0; i < ){
-
-    }
-
-}
-*/
