@@ -19,13 +19,15 @@ SOURCES += \
     DataBaseQuery.cpp \
     database.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    usefulfuncs.cpp
 
 HEADERS += \
     DataBaseQuery.h \
     PersonTemplate.h \
     database.h \
-    mainwindow.h
+    mainwindow.h \
+    usefulfuncs.h
 
 FORMS += \
     mainwindow.ui

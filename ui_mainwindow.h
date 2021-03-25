@@ -630,7 +630,7 @@ public:
         label_name_11->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Patronym :</span></p></body></html>", nullptr));
         label_name_12->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Birthday :</span></p></body></html>", nullptr));
         label_name_13->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Faculty :</span></p></body></html>", nullptr));
-        Button_Edit_Student->setText(QApplication::translate("MainWindow", "Save", nullptr));
+        Button_Edit_Student->setText(QApplication::translate("MainWindow", "Edit", nullptr));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_Student_2), QApplication::translate("MainWindow", "Student", nullptr));
         label_name_14->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Name :</span></p></body></html>", nullptr));
         label_name_15->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">LastName :</span></p></body></html>", nullptr));
