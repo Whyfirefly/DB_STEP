@@ -20,9 +20,11 @@ MainWindow::~MainWindow()
     db.Close();
 }
 
+
+//очистить поля
  void MainWindow::on_Button_Insert_Student_clicked()
 {
-  QString tableName = "table_name";
+  QString tableName = "students";
   QString valueName = "faculty";
   QString firstname = ui->Input_Name->text();
   QString lastname = ui->Input_LastName->text();
@@ -31,25 +33,30 @@ MainWindow::~MainWindow()
   QString faculty = ui->Input_Faculty->text();
 
   ui->statusbar->showMessage("Insert");
-  //db.Insert_2(ui, tableName, firstname, lastname, patronym, birthday, faculty, valueName);
-    db.Insert(tableName, firstname, lastname, patronym, birthday, faculty, valueName);
+  db.Insert_2(ui, tableName, firstname, lastname, patronym, birthday, faculty, valueName);
+    //db.Insert(tableName, firstname, lastname, patronym, birthday, faculty, valueName);
   // показать сообщение
+  ClearUIInput(ui);
+
 }
-/*
+
+
+ // очистить поля после апдейтпа
  void MainWindow::on_Button_Edit_Student_clicked()
 {
-  QString tableName = "table_students";
+  QString tableName = "students";
   QString valueName = "Faculty";
-  int id = 1;
-  QString firstname = ui->Input_Edit_Name->text();
-  QString lastname = ui->Input_Edit_LastName->text();
-  QString patronym = ui->Input_Edit_Patronym->text();
-  QString birthday = ui->Input_Edit_Birthday->text();
-  QString faculty = ui->Input_Edit_Faculty->text();
+  QString name = ui->Input_Search_Name->text();
+  QString lastName = ui->Input_Search_LastName->text();
+  auto s =  ui->Input_Search_LastName;
+  QString patronym = ui->Input_Search_Patronym->text();
+  QString dateOfBirth = ui->Input_Search_Birthday->text();
+  QString faculty = ui->Input_Search_Faculty->text();
+  int id = db.GiveMeId_2(ui, tableName, lastName, "0");
   //db.Edit(tableName, id,  firstname, lastname, patronym, birthday, faculty, valueName);
-  db.Edit_2(ui, tableName, id, firstname, lastname, patronym, birthday, faculty, valueName)
+  db.Edit_2(ui, tableName, id, name, lastName, patronym, dateOfBirth, faculty, valueName);
+  ClearUIEdit(ui);
 }
-*/
 
 /*
   void MainWindow::on_Button_Delete_clicked(){
@@ -60,6 +67,8 @@ MainWindow::~MainWindow()
   }
 */
 
+
+// Подумать, куда сохранять ИД
   void MainWindow::on_Button_Search_clicked(){
       QString tableName = "students";
       QString lastName = ui->Input_Search->text();
@@ -70,6 +79,9 @@ MainWindow::~MainWindow()
       ui->Input_Search_Name->setText(person.name);
       ui->Input_Search_LastName->setText(person.lastName);
       ui->Input_Search_Patronym->setText(person.patronym);
+      ui->Input_Search_Birthday->setText(person.dateOfBirth);
+      ui->Input_Search_Faculty->setText(person.otherData);
+      ClearUISearch(ui);
   }
 
 //очищение данных на экране

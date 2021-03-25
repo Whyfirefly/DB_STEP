@@ -7,6 +7,7 @@
 #include <QString>
 #include <QMessageBox>
 #include "database.h"
+#include "usefulfuncs.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -22,7 +23,7 @@ public:
 private slots:
     void on_Button_Insert_Student_clicked();
 
-    //void on_Button_Edit_Student_clicked();
+    void on_Button_Edit_Student_clicked();
 
     //void on_Button_Clear_clicked();
 
