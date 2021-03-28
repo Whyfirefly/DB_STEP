@@ -69,6 +69,8 @@ int DataBase::Execute_2(Ui_MainWindow *ui, QString tableName, PersonTemplate per
         query.bindValue(valueName, person.otherData);
     }
     query.bindValue(":isActive", person.isActive);
+    int flag = query.exec();
+    return flag;
 
     if(query.exec()){
         ui->statusbar->showMessage("Cool Exec");
@@ -88,7 +90,7 @@ void DataBase::Insert(QString tableName, QString name, QString lastName, QString
 int DataBase::Insert_2(Ui_MainWindow *ui, QString tableName, QString name, QString lastName, QString patronym, QString dateOfBirth, QString otherData = "0", QString valueName = "0"){
     PersonTemplate person(lastName, name, patronym, dateOfBirth, 1, otherData);
     QString sql = GiveMeInsertString(tableName, valueName);
-    Execute_2(ui,tableName, person, sql, valueName);
+    return Execute_2(ui,tableName, person, sql, valueName);
 }
 
 
@@ -99,7 +101,7 @@ void DataBase::Edit(QString tableName, int id, QString name, QString lastName, Q
     Execute(tableName, person, sql, valueName);
 }
 
-void DataBase::Edit_2(Ui_MainWindow *ui, QString tableName, int id, QString name, QString lastName, QString patronym, QString dateOfBirth, QString otherData = "0", QString valueName = "0"){
+int DataBase::Edit_2(Ui_MainWindow *ui, QString tableName, int id, QString name, QString lastName, QString patronym, QString dateOfBirth, QString otherData = "0", QString valueName = "0"){
     PersonTemplate person(lastName, name, patronym, dateOfBirth, 1, otherData, id);
     QString sql = GiveMeUpdateString(tableName, valueName);
     valueName = ":" + valueName;
@@ -114,7 +116,8 @@ void DataBase::Edit_2(Ui_MainWindow *ui, QString tableName, int id, QString name
         query.bindValue(valueName, person.otherData);
     }
     query.bindValue(":isActive", 1);
-
+    return query.exec();
+    
     if(query.exec()){
         ui->statusbar->showMessage("Cool Exec");
     } else {
@@ -224,4 +227,3 @@ PersonTemplate DataBase::Search_2(Ui_MainWindow *ui, QString tableName, int id){
         ui->statusbar->showMessage("None");
     }
 }
-
