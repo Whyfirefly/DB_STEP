@@ -33,7 +33,8 @@ MainWindow::~MainWindow()
   QString faculty = ui->Input_Faculty->text();
 
   ui->statusbar->showMessage("Insert");
-  db.Insert_2(ui, tableName, firstname, lastname, patronym, birthday, faculty, valueName);
+  flagExecuted = db.Insert_2(ui, tableName, firstname, lastname, patronym, birthday, faculty, valueName);
+  ui.statusbar.showMessage(GiveMeInsertString(flagExecuted));
     //db.Insert(tableName, firstname, lastname, patronym, birthday, faculty, valueName);
   // показать сообщение
   ClearUIInput(ui);
@@ -46,26 +47,30 @@ MainWindow::~MainWindow()
 {
   QString tableName = "students";
   QString valueName = "Faculty";
+  bool flagExecuted;
+
   QString name = ui->Input_Search_Name->text();
   QString lastName = ui->Input_Search_LastName->text();
-  auto s =  ui->Input_Search_LastName;
   QString patronym = ui->Input_Search_Patronym->text();
   QString dateOfBirth = ui->Input_Search_Birthday->text();
   QString faculty = ui->Input_Search_Faculty->text();
   int id = db.GiveMeId_2(ui, tableName, lastName, "0");
   //db.Edit(tableName, id,  firstname, lastname, patronym, birthday, faculty, valueName);
-  db.Edit_2(ui, tableName, id, name, lastName, patronym, dateOfBirth, faculty, valueName);
+  flagExecuted = db.Edit_2(ui, tableName, id, name, lastName, patronym, dateOfBirth, faculty, valueName);
+  ui.statusbar.showMessage(GiveMeEditString(flagExecuted));
   ClearUIEdit(ui);
 }
 
-/*
+
   void MainWindow::on_Button_Delete_clicked(){
       int id = ui->Input_Search_Id->text();
-      QString tableName = "table_students";
+      QString tableName = "students";
+      QString lastName = ui->Input_Search_LastName->text();
+      int id = db.GiveMeId_2(ui, tableName, lastName, "0");
 // дописать функцию giveMeProperTableName
       db.Delete_2(ui, tableName, id);
   }
-*/
+
 
 
 // Подумать, куда сохранять ИД
