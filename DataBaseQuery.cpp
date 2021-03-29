@@ -30,7 +30,7 @@ QString GiveMeUpdateString(QString tableName, QString valueName){
 }
 
 QString GiveMeDeleteString(QString tableName){
-  QString sql = "UPDATE" + tableName;
+  QString sql = "UPDATE " + tableName;
   sql += " SET isActive = 0";
   sql += " WHERE id = :id;";
   return sql;

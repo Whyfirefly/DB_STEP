@@ -71,12 +71,12 @@ int DataBase::Execute_2(Ui_MainWindow *ui, QString tableName, PersonTemplate per
     query.bindValue(":isActive", person.isActive);
     int flag = query.exec();
     return flag;
-
+    /*
     if(query.exec()){
         ui->statusbar->showMessage("Cool Exec");
     } else {
         ui->statusbar->showMessage( " Didn't work - " + sql);
-    }
+    }*/
 }
 
 void DataBase::Insert(QString tableName, QString name, QString lastName, QString patronym, QString dateOfBirth, QString otherData = "0", QString valueName = "0"){
@@ -134,19 +134,19 @@ void DataBase::Delete(QString tableName, int id){
     Execute(tableName, person, sql);
 }
 
-void DataBase::Delete_2(Ui_MainWindow *ui, QString tableName, int id){
+int DataBase::Delete_2(Ui_MainWindow *ui, QString tableName, int id){
 
     PersonTemplate person("Какое-то", "Дерьмо", "Чтобы", "Занять", 0, "Место", id);
     QString sql = GiveMeDeleteString(tableName);
     QSqlQuery query;
     query.prepare(sql);
     query.bindValue(":id", id);
-
-    if(query.exec()){
+    return query.exec();
+    /*if(query.exec()){
         ui->statusbar->showMessage("Cool Exec");
     } else {
         ui->statusbar->showMessage( " Didn't work - " + sql);
-    }
+    }*/
 }
 
 
@@ -174,7 +174,6 @@ int DataBase::GiveMeId_2(Ui_MainWindow *ui, QString tableName, QString lastName,
   } else {
       return -1;
   }
-
 }
 
 //  количество строк

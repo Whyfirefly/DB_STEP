@@ -33,9 +33,10 @@ MainWindow::~MainWindow()
   QString faculty = ui->Input_Faculty->text();
 
   ui->statusbar->showMessage("Insert");
-  flagExecuted = db.Insert_2(ui, tableName, firstname, lastname, patronym, birthday, faculty, valueName);
-  ui.statusbar.showMessage(GiveMeInsertString(flagExecuted));
-    //db.Insert(tableName, firstname, lastname, patronym, birthday, faculty, valueName);
+  bool flagExecuted = db.Insert_2(ui, tableName, firstname, lastname, patronym, birthday, faculty, valueName);
+  auto str = GiveMeInsertMessage(flagExecuted);
+  ui->statusbar->showMessage(str);
+    db.Insert(tableName, firstname, lastname, patronym, birthday, faculty, valueName);
   // показать сообщение
   ClearUIInput(ui);
 
@@ -57,18 +58,21 @@ MainWindow::~MainWindow()
   int id = db.GiveMeId_2(ui, tableName, lastName, "0");
   //db.Edit(tableName, id,  firstname, lastname, patronym, birthday, faculty, valueName);
   flagExecuted = db.Edit_2(ui, tableName, id, name, lastName, patronym, dateOfBirth, faculty, valueName);
-  ui.statusbar.showMessage(GiveMeEditString(flagExecuted));
+  //ui->statusbar->showMessage(GiveMeEditMessage(flagExecuted));
   ClearUIEdit(ui);
 }
 
 
   void MainWindow::on_Button_Delete_clicked(){
-      int id = ui->Input_Search_Id->text();
+      //int id = ui->Input_Search_Id->text();
       QString tableName = "students";
       QString lastName = ui->Input_Search_LastName->text();
       int id = db.GiveMeId_2(ui, tableName, lastName, "0");
 // дописать функцию giveMeProperTableName
-      db.Delete_2(ui, tableName, id);
+     bool flagExecuted = db.Delete_2(ui, tableName, id);
+     //ui->statusbar->showMessage(QString::number(id));
+     ui->statusbar->showMessage(GiveMeDeleteMessage(flagExecuted));
+     ClearUIEdit(ui);
   }
 
 
@@ -81,11 +85,15 @@ MainWindow::~MainWindow()
       int id = db.GiveMeId_2(ui, tableName, lastName, "0");
       ui->statusbar->showMessage("123 " + QString::number(id));
       PersonTemplate person = db.Search_2(ui, tableName, id);
+      bool flagIsActive = person.isActive;
+      if(flagIsActive){
       ui->Input_Search_Name->setText(person.name);
       ui->Input_Search_LastName->setText(person.lastName);
       ui->Input_Search_Patronym->setText(person.patronym);
       ui->Input_Search_Birthday->setText(person.dateOfBirth);
       ui->Input_Search_Faculty->setText(person.otherData);
+      }
+      ui->statusbar->showMessage(GiveMeDeleteMessage(flagIsActive));
       ClearUISearch(ui);
   }
 
