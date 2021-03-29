@@ -1,4 +1,7 @@
-#include "usefulfuncs.h"
+#ifndef USEFULFUNCTIONS_H
+#define USEFULFUNCTIONS_H
+
+#include "ui_mainwindow.h"
 
 void ClearUIInput(Ui_MainWindow *ui){
     ui->Input_Name->clear();
@@ -24,9 +27,9 @@ void ClearUIEdit(Ui_MainWindow *ui){
 
 QString GiveMeInsertMessage(bool flag){
     if(flag){
-      return "Data is inserted successfuly";
+      return "Insert is successful";
     } else {
-      return "Data is not inserted";
+      return "Insert is not successful";
     }
 }
 
@@ -34,7 +37,7 @@ QString GiveMeEditMessage(bool flag){
     if(flag){
       return "Data is edited successfuly";
     } else {
-      return "Data is not edited";
+      return "Edit is not edited";
     }
 }
 
@@ -42,7 +45,7 @@ QString GiveMeDeleteMessage(bool flag){
     if(flag){
       return "Data is deleted successfuly";
     } else {
-      return "Data is not deleted";
+      return "Edit is not deleted";
     }
 }
 
@@ -50,6 +53,9 @@ QString GiveMeSearchMessage(bool flag){
     if(flag){
       return "Data is found";
     } else {
-      return "Data is not found";
+      return "Edit is not found";
     }
 }
+
+
+#endif // USEFULFUNCTIONS_H

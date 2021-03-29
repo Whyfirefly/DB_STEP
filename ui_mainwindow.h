@@ -93,6 +93,7 @@ public:
     QLabel *label_name_13;
     QLineEdit *Input_Search_Faculty;
     QPushButton *Button_Edit_Student;
+    QPushButton *Button_Delete;
     QWidget *tab_Employee_2;
     QFormLayout *formLayout_5;
     QLabel *label_name_14;
@@ -442,6 +443,11 @@ public:
 
         formLayout_4->setWidget(5, QFormLayout::SpanningRole, Button_Edit_Student);
 
+        Button_Delete = new QPushButton(tab_Student_2);
+        Button_Delete->setObjectName(QString::fromUtf8("Button_Delete"));
+
+        formLayout_4->setWidget(6, QFormLayout::SpanningRole, Button_Delete);
+
         tabWidget_3->addTab(tab_Student_2, QString());
         tab_Employee_2 = new QWidget();
         tab_Employee_2->setObjectName(QString::fromUtf8("tab_Employee_2"));
@@ -631,6 +637,7 @@ public:
         label_name_12->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Birthday :</span></p></body></html>", nullptr));
         label_name_13->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Faculty :</span></p></body></html>", nullptr));
         Button_Edit_Student->setText(QApplication::translate("MainWindow", "Edit", nullptr));
+        Button_Delete->setText(QApplication::translate("MainWindow", "Delete", nullptr));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_Student_2), QApplication::translate("MainWindow", "Student", nullptr));
         label_name_14->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Name :</span></p></body></html>", nullptr));
         label_name_15->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">LastName :</span></p></body></html>", nullptr));
